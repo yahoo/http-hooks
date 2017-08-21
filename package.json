@@ -2,12 +2,12 @@
     "name": "http-hooks",
     "version": "0.1.0",
     "description": "events for points in http request and response lifecycle",
-    "licenses": [
-        {
-            "type": "BSD",
-            "url": "https://github.com/drewfish/node-hook-requests/blob/master/LICENSE"
-        }
-    ],
+    "license": "BSD-3-clause",
+    "homepage": "https://github.com/yahoo/http-hooks",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/yahoo/http-hooks"
+    },
     "keywords": [
         "http",
         "https",
