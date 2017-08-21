@@ -1,3 +1,6 @@
+// Copyright 2017, Yahoo Holdings
+// Licensed under the terms of the 3-Clause BSD license. See LICENSE file in project root for terms.
+
 /* global describe,beforeEach,it */
 var assert = require('assert');
 var events = require('events');

@@ -1,4 +1,5 @@
 // Copyright 2017, Yahoo Holdings
+// Licensed under the terms of the 3-Clause BSD license. See LICENSE file in project root for terms.
 
 // all GLOBALS are UPPERCASE    (... an experiment in js styling)
 const
