@@ -64,44 +64,44 @@ This is emitted for each incoming http or https request.
 request attribute 'httpHooks.start'
 -----------------------------------
 
-* `req.httpHooks.start` {Date}
+* `req.httpHooks.start` {Number}
 
-This is a Date object of when the request started.
+This is the time (number of milliseconds since unix epoch) of when the request started.
 
 
 response attribute 'httpHooks.preWriteHead'
 -------------------------------------------
 
-* `res.httpHooks.preWriteHead` {Date}
+* `res.httpHooks.preWriteHead` {Number}
 
-This is a Date object of just before `res.writeHead()` is called,
+This is the time (number of milliseconds since unix epoch) of just before `res.writeHead()` is called,
 and before the `httpHooks:pre:writeHead` response event.
 
 
 response attribute 'httpHooks.postWriteHead'
 --------------------------------------------
 
-* `res.httpHooks.postWriteHead` {Date}
+* `res.httpHooks.postWriteHead` {Number}
 
-This is a Date object of just after `res.writeHead()` is called,
+This is the time (number of milliseconds since unix epoch) of just after `res.writeHead()` is called,
 but before the `httpHooks:post:writeHead` response event.
 
 
 response attribute 'httpHooks.preEnd'
 -------------------------------------
 
-* `res.httpHooks.preEnd` {Date}
+* `res.httpHooks.preEnd` {Number}
 
-This is a Date object of just before `res.end()` is called,
+This is the time (number of milliseconds since unix epoch) of just before `res.end()` is called,
 and before the `httpHooks:pre:end` response event.
 
 
 response attribute 'httpHooks.postEnd'
 --------------------------------------
 
-* `res.httpHooks.postEnd` {Date}
+* `res.httpHooks.postEnd` {Number}
 
-This is a Date object of just after `res.end()` is called,
+This is the time (number of milliseconds since unix epoch) of just after `res.end()` is called,
 but before the `httpHooks:post:end` response event.
 
 
@@ -129,7 +129,7 @@ response event 'httpHooks:pre:end'
 * `res.on('httpHooks:pre:end', (chunk, encoding) => {...})`
 
 This is emitted before the response's `end()` is called.
-Before emitting this event http-hooks will add a `res.httpHooks.preEnd` Date object.
+Before emitting this event http-hooks will add a `res.httpHooks.preEnd` field.
 This might be a good time to monitor the time it took to generate the page.
 
 **Note:** Since http-hooks is often loaded early, other libraries which monkey-patch
@@ -142,7 +142,7 @@ response event 'httpHooks:post:end'
 * `res.on('httpHooks:post:end', (chunk, encoding) => {...})`
 
 This is emitted before the response's `end()` is called.
-Before emitting this event http-hooks will add a `res.httpHooks.postEnd` Date object.
+Before emitting this event http-hooks will add a `res.httpHooks.postEnd` field.
 This might be a good time to monitor the time it took to send the response.
 
 **Note:** Since http-hooks is often loaded early, other libraries which monkey-patch
