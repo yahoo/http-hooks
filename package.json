@@ -1,6 +1,6 @@
 {
     "name": "http-hooks",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "description": "events for points in http request and response lifecycle",
     "license": "BSD-3-clause",
     "homepage": "https://github.com/yahoo/http-hooks",
