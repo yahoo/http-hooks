@@ -1,0 +1,26 @@
+# from https://github.com/screwdriver-cd-test/quickstart-nodejs/blob/master/screwdriver.yaml
+---
+workflow:
+    - publish
+shared:
+    image: node:6
+jobs:
+    main:
+        steps:
+            - install-deps: npm install
+            - run-tests: npm run-script test
+    publish:
+        secrets:
+            - GIT_KEY       # so we can `git push`
+            - NPM_TOKEN     # so we can `npm publish`
+        steps:
+            - set-access: npm config set access public > /dev/null 2>&1
+            - set-token: npm config set //registry.npmjs.org/:_authToken $NPM_TOKEN > /dev/null 2>&1
+            - bump-version: |
+                # bumps the version, semver patch by default
+                # commit message like "foo bar [semver minor]" will cause the minor version to be bumped
+                # (this is a bit naive:  if the build gets triggered again then the bump will happen again)
+                export SEMVER_TYPE=`git log --pretty=format:"%s" | head -n1 | perl -lane '/semver ([[:alpha:]]+)/; print $1 || "patch"'`
+                npm version $SEMVER_TYPE --message "[skip ci] bump version to %s"
+            - push-git: git push origin && git push origin --tags
+            - publish-npm: npm publish
