@@ -33,7 +33,3 @@ echo Setting up secrets
 GIT_PATH=`git remote -v | grep fetch | sed 's/ (fetch)//' | cut -d'/' -f4-5`
 git remote set-url --push origin git@github.com:$GIT_PATH
 git remote -v
-
-echo Setting global username/email
-git config --global user.email "dev-null@screwdriver.cd"
-git config --global user.name "sd-buildbot"
