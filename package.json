@@ -18,6 +18,7 @@
     "main": "index.js",
     "scripts": {
         "clean": "rm -rf artifacts/ .nyc_output/ node_modules/.cache/nyc/",
+        "hand-release": "./ci/bump-version.sh && ./ci/git-push.sh",
         "lint": "eslint *.js tests/*.js",
         "pretest": "npm run lint",
         "test": "jenkins-mocha tests/*.js"
